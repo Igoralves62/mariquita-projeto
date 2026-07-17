@@ -13,6 +13,8 @@ int totalClientes = 0;
 
 void menuClientes();
 void cadastrarCliente();
+void listarClientes();
+void buscarCliente();
 
 // Função do menu de clientes
 void menuClientes()
@@ -31,6 +33,7 @@ do {
   
     printf("Escolha uma opção:");
     scanf("%d", &opcaocliente);
+    getchar(); 
     switch(opcaocliente)
     {
         case 1:
@@ -39,11 +42,10 @@ do {
         
         case 2:
         listarClientes();
-        printf("Em desenvolvimento\n");
         break;
         
          case 3:
-        printf("Em desenvolvimento\n");
+        buscarCliente();
         break;
         
          case 4:
@@ -67,7 +69,7 @@ while (opcaocliente!= 0);
 void cadastrarCliente()
 {
  
-    getchar();
+
  
  if (totalClientes >= 100)
 {
@@ -111,7 +113,7 @@ if (totalClientes==0){
     printf("Não existe nenhum cliente cadastrado\n");
     return;
 }
-int i;
+
 printf("========== CLIENTES CADASTRADOS ==========\n");
 for (int i = 0; i < totalClientes; i++)
 {
@@ -130,7 +132,39 @@ printf("--------------------------------------------\n");
 
 }
 }
+void buscarCliente()
+{
+char nomeBusca[100];
+int encontrado = 0;
+if (totalClientes == 0)
+{
+printf("Nao existe nenhum cliente cadastrado.\n");
+return;
 
+}
+printf("Digite o nome do cliente: \n");
+ fgets(nomeBusca, sizeof(nomeBusca), stdin); // NOME
+nomeBusca[strcspn(nomeBusca, "\n")] = '\0';
+
+for (int i = 0; i < totalClientes; i++)
+{
+if (strcmp(nomeBusca, clientes[i].nome) == 0) //comparação entre duas strings, 0 para verdadeiro
+{
+printf("Nome: %s\n", clientes[i].nome );
+
+printf("Telefone: %s\n", clientes[i].telefone );
+
+printf("CPF: %s\n", clientes[i].cpf );
+
+printf("Endereço: %s\n", clientes[i].endereco );          //o cliente será encontrado
+encontrado = 1;
+break;
+}
+}
+if (encontrado == 0){
+    printf("Cliente não encontrado.\n");
+}
+}
 int main()
 {
     int opcao;
@@ -147,6 +181,7 @@ int main()
 
     printf("Escolha uma opção: ");
     scanf("%d", &opcao);
+    getchar();
 
     switch (opcao)
     {
