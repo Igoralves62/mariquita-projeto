@@ -32,8 +32,35 @@ Todas as alterações importantes do projeto **Sistema Chácara Mariquita** ser�
 - Armazenamento em vetor de até 100 clientes.
 - Contador de clientes cadastrados.
 - Validação do limite máximo de clientes.
+- Exibição dos dados cadastrados após o cadastro.
 - Retorno automático ao menu após o cadastro.
 
 ### Melhorias
 - Organização do código em funções.
 - Melhoria da navegação entre os menus.
+
+---
+
+## Sprint 4 - Listagem de clientes
+
+### Adicionado
+- Função para listar todos os clientes cadastrados.
+- Exibição de nome, telefone, CPF e endereço.
+- Numeração automática dos clientes listados.
+
+### Melhorias
+- Validação para informar quando não houver clientes cadastrados.
+
+---
+
+## Sprint 5 - Busca de clientes
+
+### Adicionado
+- Busca de clientes pelo nome.
+- Comparação de nomes utilizando `strcmp()`.
+- Exibição completa dos dados do cliente encontrado.
+
+### Melhorias
+- Validação para informar quando não houver clientes cadastrados.
+- Mensagem de cliente não encontrado.
+- Correção da leitura do teclado utilizando `getchar()` após `scanf()`.
