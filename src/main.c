@@ -16,6 +16,7 @@ void cadastrarCliente();
 void listarClientes();
 void buscarCliente();
 void editarCliente();
+void excluirCliente();
 
 // Função do menu de clientes
 void menuClientes()
@@ -54,7 +55,7 @@ do {
         break;
         
          case 5:
-        printf("Em desenvolvimento\n");
+        excluirCliente();
         break;
         
         case 0:
@@ -212,6 +213,44 @@ if (encontrado == 0)
     printf("Cliente nao encontrado.\n");
 }
 
+}
+
+void excluirCliente(){
+
+char nomeExcluir[100];
+int encontrado=0;
+
+if (totalClientes == 0)
+{
+    printf("Nao existe nenhum cliente cadastrado.\n");
+    return;
+}
+
+    printf("Digite o nome do cliente que deseja excluir: \n");
+    fgets(nomeExcluir, sizeof(nomeExcluir), stdin); // NOME
+    nomeExcluir[strcspn(nomeExcluir, "\n")] = '\0';
+
+for (int i = 0; i < totalClientes; i++)
+ {
+
+if (strcmp(nomeExcluir, clientes[i].nome) == 0)
+  {
+for (int j = i; j < totalClientes - 1; j++)
+   {
+    clientes[j] = clientes[j + 1];
+   }  
+   totalClientes--;
+   encontrado = 1;
+   printf("Cliente excluido com sucesso!\n");
+   printf("\n");
+   break;
+  }
+ }
+ if (encontrado == 0)
+{
+    printf("Cliente nao encontrado.\n");
+}
+ 
 }
 
 int main()
