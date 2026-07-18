@@ -15,6 +15,7 @@ void menuClientes();
 void cadastrarCliente();
 void listarClientes();
 void buscarCliente();
+void editarCliente();
 
 // Função do menu de clientes
 void menuClientes()
@@ -49,7 +50,7 @@ do {
         break;
         
          case 4:
-        printf("Em desenvolvimento\n");
+        editarCliente();
         break;
         
          case 5:
@@ -103,8 +104,8 @@ void cadastrarCliente()
     printf("Telefone cadastrado: %s\n", clientes[totalClientes].telefone);
     printf("Cpf cadastrado: %s\n", clientes[totalClientes].cpf);
     printf("Endereco cadastrado: %s\n", clientes[totalClientes].endereco);
-printf("Cliente cadastrado com sucesso!");
-totalClientes++;
+    printf("Cliente cadastrado com sucesso!");
+    totalClientes++;
 }
 void listarClientes()
 {
@@ -118,17 +119,17 @@ printf("========== CLIENTES CADASTRADOS ==========\n");
 for (int i = 0; i < totalClientes; i++)
 {
 
-printf("Cliente %d\n", i + 1);
+    printf("Cliente %d\n", i + 1);
 
-printf("Nome: %s\n", clientes[i].nome );
+    printf("Nome: %s\n", clientes[i].nome );
 
-printf("Telefone: %s\n", clientes[i].telefone );
+    printf("Telefone: %s\n", clientes[i].telefone );
 
-printf("CPF: %s\n", clientes[i].cpf );
+    printf("CPF: %s\n", clientes[i].cpf );
 
-printf("Endereço: %s\n", clientes[i].endereco );
+    printf("Endereço: %s\n", clientes[i].endereco );
 
-printf("--------------------------------------------\n");
+    printf("--------------------------------------------\n");
 
 }
 }
@@ -138,37 +139,84 @@ char nomeBusca[100];
 int encontrado = 0;
 if (totalClientes == 0)
 {
-printf("Nao existe nenhum cliente cadastrado.\n");
-return;
+    printf("Nao existe nenhum cliente cadastrado.\n");
+    return;
 
 }
 printf("Digite o nome do cliente: \n");
- fgets(nomeBusca, sizeof(nomeBusca), stdin); // NOME
-nomeBusca[strcspn(nomeBusca, "\n")] = '\0';
+    fgets(nomeBusca, sizeof(nomeBusca), stdin); // NOME
+    nomeBusca[strcspn(nomeBusca, "\n")] = '\0';
 
 for (int i = 0; i < totalClientes; i++)
 {
 if (strcmp(nomeBusca, clientes[i].nome) == 0) //comparação entre duas strings, 0 para verdadeiro
 {
-printf("Nome: %s\n", clientes[i].nome );
+    printf("Nome: %s\n", clientes[i].nome );
 
-printf("Telefone: %s\n", clientes[i].telefone );
+    printf("Telefone: %s\n", clientes[i].telefone );
 
-printf("CPF: %s\n", clientes[i].cpf );
+    printf("CPF: %s\n", clientes[i].cpf );
 
-printf("Endereço: %s\n", clientes[i].endereco );          //o cliente será encontrado
-encontrado = 1;
-break;
+    printf("Endereço: %s\n", clientes[i].endereco );          //o cliente será encontrado
+    encontrado = 1;
+     break;
 }
 }
 if (encontrado == 0){
     printf("Cliente não encontrado.\n");
 }
 }
+void editarCliente()
+{
+    int encontrado = 0;
+    if (totalClientes == 0){
+    printf("Nao existe nenhum cliente cadastrado.\n");
+    return;
+ }
+    char nomeEditar[100];
+    printf("Digite o nome do cliente que deseja editar: ");
+    fgets(nomeEditar, sizeof(nomeEditar), stdin); // NOME
+    nomeEditar[strcspn(nomeEditar, "\n")] = '\0';
+
+for (int i = 0; i < totalClientes; i++)
+ {
+
+if (strcmp(nomeEditar, clientes[i].nome) == 0)
+   {
+    printf("Digite o novo telefone: ");
+    fgets(clientes[i].telefone, sizeof(clientes[i].telefone), stdin);  //TELEFONE
+    clientes[i].telefone[strcspn(clientes[i].telefone, "\n")] = '\0';
+
+    printf("Digite o novo CPF: ");
+    fgets(clientes[i].cpf, sizeof(clientes[i].cpf), stdin);  //CPF
+    clientes[i].cpf[strcspn(clientes[i].cpf, "\n")] = '\0';
+
+    printf("Digite o novo endereço: ");
+    fgets(clientes[i].endereco, sizeof(clientes[i].endereco), stdin);  //ENDEREÇO
+    clientes[i].endereco[strcspn(clientes[i].endereco, "\n")] = '\0';
+   encontrado = 1;
+    printf("Cliente atualizado com sucesso!\n");
+    
+    printf("\n===== DADOS ATUALIZADOS =====\n");
+
+    printf("Nome: %s\n", clientes[i].nome);
+    printf("Telefone: %s\n", clientes[i].telefone);
+    printf("CPF: %s\n", clientes[i].cpf);
+    printf("Endereco: %s\n", clientes[i].endereco);
+    
+    break;
+   }
+ }
+if (encontrado == 0)
+{
+    printf("Cliente nao encontrado.\n");
+}
+
+}
+
 int main()
 {
     int opcao;
-
 
  do 
  {
