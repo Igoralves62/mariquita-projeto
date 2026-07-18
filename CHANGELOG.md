@@ -64,3 +64,18 @@ Todas as alterações importantes do projeto **Sistema Chácara Mariquita** ser�
 - Validação para informar quando não houver clientes cadastrados.
 - Mensagem de cliente não encontrado.
 - Correção da leitura do teclado utilizando `getchar()` após `scanf()`.
+
+---
+
+## Sprint 6 - Edição de clientes
+
+### Adicionado
+- Função para editar clientes cadastrados.
+- Busca do cliente pelo nome utilizando `strcmp()`.
+- Atualização dos dados de telefone, CPF e endereço.
+- Mensagem de confirmação após a edição do cliente.
+
+### Melhorias
+- Validação para informar quando não houver clientes cadastrados.
+- Mensagem para cliente não encontrado.
+- Encerramento da busca após localizar o cliente utilizando `break`.
