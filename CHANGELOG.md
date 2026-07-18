@@ -78,4 +78,22 @@ Todas as alterações importantes do projeto **Sistema Chácara Mariquita** ser�
 ### Melhorias
 - Validação para informar quando não houver clientes cadastrados.
 - Mensagem para cliente não encontrado.
+- Encerramento da busca após localizar o cliente utilizando `break`
+
+---
+
+## Sprint 7 - Exclusão de clientes
+
+### Adicionado
+- Função para excluir clientes cadastrados.
+- Busca do cliente pelo nome utilizando `strcmp()`.
+- Remoção do cliente do vetor de clientes.
+- Reorganização automática do vetor após a exclusão.
+- Atualização da quantidade de clientes cadastrados (`totalClientes`).
+- Mensagem de confirmação após a exclusão.
+
+### Melhorias
+- Validação para informar quando não houver clientes cadastrados.
+- Mensagem para cliente não encontrado.
 - Encerramento da busca após localizar o cliente utilizando `break`.
+- Deslocamento dos clientes seguintes para evitar posições vazias no vetor.
