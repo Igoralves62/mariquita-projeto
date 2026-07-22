@@ -97,3 +97,24 @@ Todas as alterações importantes do projeto **Sistema Chácara Mariquita** ser�
 - Mensagem para cliente não encontrado.
 - Encerramento da busca após localizar o cliente utilizando `break`.
 - Deslocamento dos clientes seguintes para evitar posições vazias no vetor.
+
+---
+
+## Sprint 8 - Cadastro de Reservas
+
+### Adicionado
+- Criação da estrutura `Reserva`.
+- Armazenamento de até 100 reservas em vetor.
+- Cadastro de reservas vinculado a clientes já cadastrados.
+- Registro de data, horário, quantidade de pessoas, valor, tipo de evento e observações.
+- Exibição dos dados da reserva após o cadastro.
+
+### Validações
+- Verificação do limite máximo de reservas.
+- Verificação da existência de clientes cadastrados.
+- Verificação se o cliente informado está cadastrado antes de permitir a reserva.
+
+### Melhorias
+- Utilização de `strcpy()` para associar o nome do cliente à reserva.
+- Organização do cadastro em função específica (`cadastrarReserva()`).
+- Mensagens de confirmação e erro para facilitar a utilização do sistema.
