@@ -118,3 +118,18 @@ Todas as alterações importantes do projeto **Sistema Chácara Mariquita** ser�
 - Utilização de `strcpy()` para associar o nome do cliente à reserva.
 - Organização do cadastro em função específica (`cadastrarReserva()`).
 - Mensagens de confirmação e erro para facilitar a utilização do sistema.
+
+## Sprint 9 - Gerenciamento inicial de reservas
+
+### Adicionado
+- Menu exclusivo de Reservas.
+- Listagem de todas as reservas cadastradas.
+- Estrutura `Data` para armazenamento de datas.
+- Cadastro de data de início e data de término.
+- Exibição das datas no formato `dd/mm/aaaa`.
+- Impressão completa das informações da reserva.
+
+### Melhorias
+- Organização das estruturas do projeto.
+- Separação dos menus de Clientes e Reservas.
+- Código preparado para futuras validações de disponibilidade.
