@@ -8,8 +8,23 @@
     char endereco[200];
     
 };
+
+struct Reserva 
+{
+    char nomeCliente[100];
+    char data[11];
+    char horario[6];
+    int quantidadePessoas;
+    float valor;
+    char tipoEvento[100];
+    char observacoes[300];
+};
+
 struct Cliente clientes[100];  //variaveis globais, todas funções do arquivo a utilizam
 int totalClientes = 0;
+
+struct Reserva reservas[100];
+int totalReservas = 0;
 
 void menuClientes();
 void cadastrarCliente();
@@ -17,6 +32,13 @@ void listarClientes();
 void buscarCliente();
 void editarCliente();
 void excluirCliente();
+
+void menuReservas();
+void cadastrarReserva();
+void listarReservas();
+void buscarReserva();
+void editarReserva();
+void excluirReserva();
 
 // Função do menu de clientes
 void menuClientes()
@@ -250,6 +272,85 @@ for (int j = i; j < totalClientes - 1; j++)
 {
     printf("Cliente nao encontrado.\n");
 }
+ 
+}
+
+void cadastrarReserva()
+{
+char nomeCliente[100];
+int encontrado = 0;
+
+if (totalReservas >= 100)
+{
+    printf("Limite máximo de reservas atingido.\n");
+    return;
+}
+
+if (totalClientes == 0)
+    {
+        printf("Nao existe nenhum cliente cadastrado.\n");
+        return;
+    }
+
+     printf("Digite o nome do cliente ");
+    fgets(nomeCliente, sizeof(nomeCliente), stdin); // NOME
+    nomeCliente[strcspn(nomeCliente, "\n")] = '\0';
+
+for (int i = 0; i < totalClientes; i++)
+{
+    if (strcmp(nomeCliente, clientes[i].nome) == 0)
+    {
+        encontrado = 1;// Cliente encontrado
+        break;
+    }
+   
+}
+if (encontrado == 0)
+{
+    printf("Cliente nao encontrado.\n");
+    printf("Cadastre o cliente antes de realizar uma reserva.\n");
+    return;
+}
+
+strcpy(reservas[totalReservas].nomeCliente, nomeCliente); //copia uma string para a outra
+
+    printf("Digite a data da reserva: ");
+    fgets(reservas[totalReservas].data, sizeof(reservas[totalReservas].data), stdin); // NOME
+    reservas[totalReservas].data[strcspn(reservas[totalReservas].data, "\n")] = '\0';
+
+    printf("Digite o horário da reserva: ");
+    fgets(reservas[totalReservas].horario, sizeof(reservas[totalReservas].horario), stdin); // NOME
+    reservas[totalReservas].horario[strcspn(reservas[totalReservas].horario, "\n")] = '\0';
+
+    printf("Digite a quantidade de pessoas: ");
+    scanf("%d", &reservas[totalReservas].quantidadePessoas);
+    getchar();
+
+    printf("Digite o valor: ");
+    scanf("%f", &reservas[totalReservas].valor);
+    getchar();
+
+    printf("Digite o tipo de evento:? ");
+    fgets(reservas[totalReservas].tipoEvento, sizeof(reservas[totalReservas].tipoEvento), stdin); // NOME
+    reservas[totalReservas].tipoEvento[strcspn(reservas[totalReservas].tipoEvento, "\n")] = '\0';
+
+    printf("Observações: ");
+    fgets(reservas[totalReservas].observacoes, sizeof(reservas[totalReservas].observacoes), stdin); // NOME
+    reservas[totalReservas].observacoes[strcspn(reservas[totalReservas].observacoes, "\n")] = '\0';
+
+   printf("\n===== DADOS DA RESERVA =====\n");
+
+printf("Cliente: %s\n", reservas[totalReservas].nomeCliente);
+printf("Data: %s\n", reservas[totalReservas].data);
+printf("Horario: %s\n", reservas[totalReservas].horario);
+printf("Quantidade de pessoas: %d\n", reservas[totalReservas].quantidadePessoas);
+printf("Valor: %.2f\n", reservas[totalReservas].valor);
+printf("Evento: %s\n", reservas[totalReservas].tipoEvento);
+printf("Observacoes: %s\n", reservas[totalReservas].observacoes);
+
+totalReservas++;
+
+printf("Reserva cadastrada com sucesso!\n");
  
 }
 
