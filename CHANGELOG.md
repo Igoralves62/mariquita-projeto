@@ -133,3 +133,49 @@ Todas as alterações importantes do projeto **Sistema Chácara Mariquita** ser�
 - Organização das estruturas do projeto.
 - Separação dos menus de Clientes e Reservas.
 - Código preparado para futuras validações de disponibilidade.
+
+---
+
+## Sprint 10 - Busca de reservas
+
+### Adicionado
+- Função `buscarReserva()`.
+- Busca de reservas pelo nome do cliente.
+- Verificação se existem reservas cadastradas antes da busca.
+- Exibição completa dos dados da reserva quando encontrada:
+  - Nome do cliente.
+  - Data de início.
+  - Data de término.
+  - Horário.
+  - Quantidade de pessoas.
+  - Valor da reserva.
+  - Tipo de evento.
+  - Observações.
+- Mensagem de reserva não encontrada quando o cliente não possui reservas.
+
+### Melhorias
+- Organização da busca utilizando `strcmp()`.
+- Exibição das datas utilizando a estrutura `Data` no formato `dd/mm/aaaa`.
+- Padronização das mensagens do módulo de reservas.
+
+## Sprint 11 - Edição de Reservas
+
+### Adicionado
+- Implementada a função `editarReserva()`.
+- Busca da reserva pelo nome do cliente.
+- Validação para verificar se existem reservas cadastradas antes da edição.
+- Mensagem de reserva não encontrada quando necessário.
+
+### Funcionalidades da edição
+- Alteração da data de início.
+- Alteração da data de término.
+- Alteração do horário.
+- Alteração da quantidade de pessoas.
+- Alteração do valor da reserva.
+- Alteração do tipo de evento.
+- Alteração das observações.
+
+### Melhorias
+- Exibição dos dados atualizados após a edição da reserva.
+- Mantido o padrão visual utilizado nos módulos anteriores.
+- Continuidade da utilização da estrutura `Data` para armazenamento das datas.
