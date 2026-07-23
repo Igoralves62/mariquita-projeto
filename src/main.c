@@ -126,7 +126,7 @@ do {
         break;
         
          case 3:
-        printf("Em desenvolvimento\n");
+        buscarReserva();
         break;
         
          case 4:
@@ -472,6 +472,57 @@ for (int i = 0; i < totalReservas; i++)
 
  }
 }
+void buscarReserva()
+{ 
+    char nomeCliente[100];
+    int encontrado = 0;
+
+    if (totalReservas == 0)
+    {
+        printf("Nao ha nenhuma reserva cadastrada.\n");
+        return;
+    }
+    printf("Digite o nome do cliente: \n");
+    fgets(nomeCliente, sizeof(nomeCliente), stdin); // NOME
+    nomeCliente[strcspn(nomeCliente, "\n")] = '\0';
+
+for (int i = 0; i < totalReservas; i++)
+{
+    if (strcmp(nomeCliente, reservas[i].nomeCliente) == 0)
+    {
+        encontrado = 1;
+
+        printf("\n===== RESERVA ENCONTRADA =====\n");
+
+        printf("Cliente: %s\n", reservas[i].nomeCliente);
+
+        printf("Data de início: %02d/%02d/%04d\n",
+               reservas[i].dataInicio.dia,
+               reservas[i].dataInicio.mes,
+               reservas[i].dataInicio.ano);
+
+        printf("Data de término: %02d/%02d/%04d\n",
+               reservas[i].dataFim.dia,
+               reservas[i].dataFim.mes,
+               reservas[i].dataFim.ano);
+
+        printf("Horário: %s\n", reservas[i].horario);
+        printf("Quantidade de pessoas: %d\n", reservas[i].quantidadePessoas);
+        printf("Valor: R$ %.2f\n", reservas[i].valor);
+        printf("Tipo de evento: %s\n", reservas[i].tipoEvento);
+        printf("Observações: %s\n", reservas[i].observacoes);
+
+        break;
+    }
+}
+
+if (encontrado == 0)
+{
+    printf("Reserva não encontrada.\n");
+}
+}
+
+
 
 int main()
 {
