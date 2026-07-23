@@ -130,7 +130,7 @@ do {
         break;
         
          case 4:
-        printf("Em desenvolvimento\n");
+        editarReserva();
         break;
         
          case 5:
@@ -521,6 +521,138 @@ if (encontrado == 0)
     printf("Reserva não encontrada.\n");
 }
 }
+
+void editarReserva()
+{
+    char nomeCliente[100];
+    int encontrado = 0;
+
+
+if (totalReservas == 0)
+{
+    printf("Nao ha nenhuma reserva cadastrada.\n");
+    return;
+}
+printf("Digite o nome do cliente da reserva que deseja editar: ");
+fgets(nomeCliente, sizeof(nomeCliente), stdin);
+nomeCliente[strcspn(nomeCliente, "\n")] = '\0';
+
+for (int i = 0; i < totalReservas; i++)
+{
+    if (strcmp(nomeCliente, reservas[i].nomeCliente) == 0)
+    {
+        encontrado = 1;
+        
+        printf("\n===== RESERVA ATUAL =====\n");
+
+    printf("Cliente: %s\n", reservas[i].nomeCliente);
+
+    printf("Data de início: %02d/%02d/%04d\n",
+       reservas[i].dataInicio.dia,
+       reservas[i].dataInicio.mes,
+       reservas[i].dataInicio.ano);
+
+    printf("Data de término: %02d/%02d/%04d\n",
+       reservas[i].dataFim.dia,
+       reservas[i].dataFim.mes,
+       reservas[i].dataFim.ano);
+
+    printf("Horário: %s\n", reservas[i].horario);
+
+    printf("Quantidade de pessoas: %d\n", reservas[i].quantidadePessoas);
+
+    printf("Valor: R$ %.2f\n", reservas[i].valor);
+
+    printf("Tipo de evento: %s\n", reservas[i].tipoEvento);
+
+    printf("Observações: %s\n\n", reservas[i].observacoes);
+
+ printf("\n===== EDITANDO RESERVA =====\n");
+        printf("Nova data de início:\n");
+
+        printf("Dia: ");
+        scanf("%d", &reservas[i].dataInicio.dia);
+
+        printf("Mes: ");
+        scanf("%d", &reservas[i].dataInicio.mes);
+
+        printf("Ano: ");
+        scanf("%d", &reservas[i].dataInicio.ano);
+
+getchar();
+
+printf("Nova data de término:\n");
+
+printf("Dia: ");
+scanf("%d", &reservas[i].dataFim.dia);
+
+printf("Mes: ");
+scanf("%d", &reservas[i].dataFim.mes);
+
+printf("Ano: ");
+scanf("%d", &reservas[i].dataFim.ano);
+
+getchar();
+
+printf("Digite o novo horário da reserva: ");
+fgets(reservas[i].horario, sizeof(reservas[i].horario), stdin);
+reservas[i].horario[strcspn(reservas[i].horario, "\n")] = '\0';
+
+printf("Digite a nova quantidade de pessoas: ");
+scanf("%d", &reservas[i].quantidadePessoas);
+getchar();
+
+printf("Digite o novo valor: ");
+scanf("%f", &reservas[i].valor);
+getchar();
+
+printf("Digite o novo tipo de evento: ");
+fgets(reservas[i].tipoEvento, sizeof(reservas[i].tipoEvento), stdin);
+reservas[i].tipoEvento[strcspn(reservas[i].tipoEvento, "\n")] = '\0';
+
+printf("Digite as novas observações: ");
+fgets(reservas[i].observacoes, sizeof(reservas[i].observacoes), stdin);
+reservas[i].observacoes[strcspn(reservas[i].observacoes, "\n")] = '\0';
+
+printf("\nReserva atualizada com sucesso!\n");
+
+printf("\n===== DADOS ATUALIZADOS =====\n");
+
+printf("Cliente: %s\n", reservas[i].nomeCliente);
+
+printf("Data de início: %02d/%02d/%04d\n",
+       reservas[i].dataInicio.dia,
+       reservas[i].dataInicio.mes,
+       reservas[i].dataInicio.ano);
+
+printf("Data de término: %02d/%02d/%04d\n",
+       reservas[i].dataFim.dia,
+       reservas[i].dataFim.mes,
+       reservas[i].dataFim.ano);
+
+printf("Horário: %s\n", reservas[i].horario);
+
+printf("Quantidade de pessoas: %d\n", reservas[i].quantidadePessoas);
+
+printf("Valor: R$ %.2f\n", reservas[i].valor);
+
+printf("Tipo de evento: %s\n", reservas[i].tipoEvento);
+
+printf("Observações: %s\n", reservas[i].observacoes);
+
+        break;
+    }
+}
+
+
+
+if (encontrado == 0)
+{
+    printf("Reserva nao encontrada.\n");
+}
+
+}
+
 
 
 
