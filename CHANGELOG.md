@@ -179,3 +179,11 @@ Todas as alterações importantes do projeto **Sistema Chácara Mariquita** ser�
 - Exibição dos dados atualizados após a edição da reserva.
 - Mantido o padrão visual utilizado nos módulos anteriores.
 - Continuidade da utilização da estrutura `Data` para armazenamento das datas.
+
+## Sprint 12 - Exclusão de Reservas
+### Adicionado
+- Exclusão de reservas pelo nome do cliente.
+- Reorganização automática do vetor de reservas após a exclusão.
+- Atualização da variável `totalReservas`.
+- Mensagem de confirmação da exclusão.
+- Mensagem quando a reserva não for encontrada.
