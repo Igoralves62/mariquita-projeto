@@ -187,3 +187,29 @@ Todas as alterações importantes do projeto **Sistema Chácara Mariquita** ser�
 - Atualização da variável `totalReservas`.
 - Mensagem de confirmação da exclusão.
 - Mensagem quando a reserva não for encontrada.
+
+## Sprint 13 - Cadastro de Pagamentos
+
+## Adicionado
+Criação da estrutura Pagamento.
+Criação do vetor global pagamentos[100].
+Criação da variável global totalPagamentos.
+Implementação da função menuPagamentos().
+Implementação da função cadastrarPagamento().
+Funcionalidades implementadas
+Verificação se existe alguma reserva cadastrada antes de registrar um pagamento.
+Busca da reserva pelo nome do cliente.
+Associação automática do pagamento à reserva encontrada.
+Cópia do nome do cliente para o registro do pagamento.
+Preenchimento automático do valor total utilizando o valor da reserva.
+Cadastro do valor pago.
+Cadastro da forma de pagamento.
+Definição automática do status do pagamento:
+Pago
+Pagamento Parcial
+Pendente
+Exibição do resumo completo do pagamento após o cadastro.
+Incremento de totalPagamentos após o cadastro.
+Estrutura do menu
+Cadastro de Pagamentos funcional.
+Opções de Listar, Buscar, Editar e Excluir preparadas para as próximas sprints.
