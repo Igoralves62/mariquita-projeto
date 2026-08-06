@@ -213,3 +213,39 @@ Incremento de totalPagamentos após o cadastro.
 Estrutura do menu
 Cadastro de Pagamentos funcional.
 Opções de Listar, Buscar, Editar e Excluir preparadas para as próximas sprints.
+
+
+## Sprint 14 - Listagem de Pagamentos
+## Adicionado
+Implementação da função listarPagamentos().
+## Funcionalidades implementadas
+Verificação se existem pagamentos cadastrados antes da listagem.
+Percurso do vetor pagamentos[].
+Exibição de todos os pagamentos cadastrados.
+Exibição das seguintes informações:
+Nome do cliente
+Valor total da reserva
+Valor pago
+Forma de pagamento
+Status do pagamento
+Organização da saída com numeração dos pagamentos e separadores visuais.
+## Melhorias
+Padronização da estrutura da função com os módulos de Clientes e Reservas.
+Correção do uso dos índices do vetor (pagamentos[i]).
+Correção da validação inicial utilizando totalPagamentos.
+Correção da leitura dos dados diretamente da estrutura Pagamento.
+
+## Sprint 15 - Busca de Pagamentos
+
+### Adicionado
+- Implementada a função `buscarPagamento()`.
+- Busca de pagamentos pelo nome do cliente.
+- Validação para quando não existem pagamentos cadastrados.
+- Utilização da função `strcmp()` para localizar o pagamento.
+- Exibição completa dos dados do pagamento encontrado:
+  - Nome do cliente;
+  - Valor total da reserva;
+  - Valor pago;
+  - Forma de pagamento;
+  - Status do pagamento.
+- Mensagem de aviso caso o pagamento não seja encontrado.
