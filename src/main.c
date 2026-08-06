@@ -28,12 +28,23 @@ struct Reserva
     char tipoEvento[100];
     char observacoes[300];
 };
+struct Pagamento
+{
+    char nomeCliente[100];
+    float valorTotal;
+    float valorPago;
+    char formaPagamento[30];
+    char status[50];
+};
 
 struct Cliente clientes[100];  //variaveis globais, todas funções do arquivo a utilizam
 int totalClientes = 0;
 
 struct Reserva reservas[100];
 int totalReservas = 0;
+
+struct Pagamento pagamentos[100];
+int totalPagamentos = 0;
 
 void menuClientes();
 void cadastrarCliente();
@@ -48,6 +59,13 @@ void listarReservas();
 void buscarReserva();
 void editarReserva();
 void excluirReserva();
+
+void menuPagamentos();
+void cadastrarPagamento();
+void listarPagamentos();
+void buscarPagamento();
+void editarPagamento();
+void excluirPagamento();
 
 // Função do menu de clientes
 void menuClientes()
@@ -145,6 +163,57 @@ do {
     }
 }
 while (opcaoreserva!= 0);
+}
+
+void menuPagamentos()
+{
+    int opcaoPagamento;
+
+    do
+    {
+        printf("\n========== MENU PAGAMENTOS ==========\n\n");
+
+        printf("1 - Cadastrar Pagamento\n");
+        printf("2 - Listar Pagamentos\n");
+        printf("3 - Buscar Pagamento\n");
+        printf("4 - Editar Pagamento\n");
+        printf("5 - Excluir Pagamento\n");
+        printf("0 - Voltar\n\n");
+
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcaoPagamento);
+        getchar();
+
+       switch(opcaoPagamento)
+{
+    case 1:
+        cadastrarPagamento();
+        break;
+
+    case 2:
+        printf("Em desenvolvimento.\n");
+        break;
+
+    case 3:
+        printf("Em desenvolvimento.\n");
+        break;
+
+    case 4:
+        printf("Em desenvolvimento.\n");
+        break;
+
+    case 5:
+        printf("Em desenvolvimento.\n");
+        break;
+
+    case 0:
+        break;
+
+    default:
+        printf("Opcao invalida.\n");
+}
+
+    } while(opcaoPagamento != 0);
 }
 
 void cadastrarCliente()
@@ -652,9 +721,125 @@ if (encontrado == 0)
 }
 
 }
+void excluirReserva()
+{
+    char nomeCliente[100];
+    int encontrado = 0;
+
+    if (totalReservas == 0)
+    {
+        printf("Nao ha nenhuma reserva cadastrada.\n");
+        return;
+    }
+
+    printf("Digite o nome do cliente: ");
+    fgets(nomeCliente, sizeof(nomeCliente), stdin);
+    nomeCliente[strcspn(nomeCliente, "\n")] = '\0';
+
+    for (int i = 0; i < totalReservas; i++)
+    {
+        if (strcmp(nomeCliente, reservas[i].nomeCliente) == 0)
+        {
+            encontrado = 1;
+
+            for (int j = i; j < totalReservas - 1; j++)
+            {
+                reservas[j] = reservas[j + 1];
+            }
+
+            totalReservas--;
+
+            printf("Reserva excluida com sucesso!\n");
+            break;
+        }
+    }
+
+    if (encontrado == 0)
+    {
+        printf("Reserva nao encontrada.\n");
+    }
+}
 
 
+void cadastrarPagamento()
+{
+    char nomeCliente[100];
+    int encontrado = 0;
+    if (totalPagamentos >= 100)
+    {
+    printf("Limite máximo de pagamentos atingido.\n");
+    return;
+    }
+    if (totalReservas == 0)
+    {
+        printf("Nao ha nenhuma reserva cadastrada.\n");
+        return;
+    }
 
+    printf("Digite o nome do cliente: ");
+    fgets(nomeCliente, sizeof(nomeCliente), stdin);
+    nomeCliente[strcspn(nomeCliente, "\n")] = '\0';
+
+    for (int i = 0; i < totalReservas; i++)
+    {
+        if (strcmp(nomeCliente, reservas[i].nomeCliente) == 0)
+{
+    encontrado = 1;
+
+    strcpy(pagamentos[totalPagamentos].nomeCliente, nomeCliente);
+
+    pagamentos[totalPagamentos].valorTotal = reservas[i].valor;
+
+    printf("Valor total da reserva: R$ %.2f\n",
+           pagamentos[totalPagamentos].valorTotal);
+
+    printf("Digite o valor pago: ");
+    scanf("%f", &pagamentos[totalPagamentos].valorPago);
+    getchar();
+
+    printf("Forma de pagamento: ");
+    fgets(pagamentos[totalPagamentos].formaPagamento,
+          sizeof(pagamentos[totalPagamentos].formaPagamento), stdin);
+
+    pagamentos[totalPagamentos].formaPagamento[
+        strcspn(pagamentos[totalPagamentos].formaPagamento, "\n")
+    ] = '\0';
+
+    if (pagamentos[totalPagamentos].valorPago >= pagamentos[totalPagamentos].valorTotal)
+    {
+        strcpy(pagamentos[totalPagamentos].status, "Pago");
+    }
+    else if (pagamentos[totalPagamentos].valorPago > 0)
+    {
+        strcpy(pagamentos[totalPagamentos].status, "Pagamento Parcial");
+    }
+    else
+    {
+        strcpy(pagamentos[totalPagamentos].status, "Pendente");
+    }
+
+    printf("\n===== DADOS DO PAGAMENTO =====\n");
+
+    printf("Cliente: %s\n", pagamentos[totalPagamentos].nomeCliente);
+    printf("Valor total: R$ %.2f\n", pagamentos[totalPagamentos].valorTotal);
+    printf("Valor pago: R$ %.2f\n", pagamentos[totalPagamentos].valorPago);
+    printf("Forma de pagamento: %s\n", pagamentos[totalPagamentos].formaPagamento);
+    printf("Status: %s\n", pagamentos[totalPagamentos].status);
+
+    totalPagamentos++;
+
+    printf("\nPagamento cadastrado com sucesso!\n");
+
+    break;
+}
+    }
+
+    if (encontrado == 0)
+    {
+        printf("Nenhuma reserva encontrada para esse cliente.\n");
+    }
+
+}
 
 int main()
 {
@@ -684,7 +869,7 @@ int main()
             break;
 
         case 3:
-            printf("Módulo de Pagamentos em desenvolvimento.\n");
+            menuPagamentos();
             break;
 
         case 4:
