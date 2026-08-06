@@ -841,6 +841,34 @@ void cadastrarPagamento()
 
 }
 
+void listarPagamentos()
+{
+    if (totalPagamentos == 0)
+    {
+        printf("Nao existe nenhum pagamento cadastrado.\n");
+        return;
+    }
+
+    printf("\n========== PAGAMENTOS CADASTRADOS ==========\n\n");
+
+    for (int i = 0; i < totalPagamentos; i++)
+    {
+        printf("Pagamento %d\n", i + 1);
+
+        printf("Cliente: %s\n", pagamentos[i].nomeCliente);
+
+        printf("Valor total: R$ %.2f\n", pagamentos[i].valorTotal);
+
+        printf("Valor pago: R$ %.2f\n", pagamentos[i].valorPago);
+
+        printf("Forma de pagamento: %s\n", pagamentos[i].formaPagamento);
+
+        printf("Status: %s\n", pagamentos[i].status);
+
+        printf("--------------------------------------------\n");
+    }
+}
+
 int main()
 {
     int opcao;
