@@ -191,15 +191,15 @@ void menuPagamentos()
         break;
 
     case 2:
-        printf("Em desenvolvimento.\n");
+        listarPagamentos();
         break;
 
     case 3:
-        printf("Em desenvolvimento.\n");
+        buscarPagamento();
         break;
 
     case 4:
-        printf("Em desenvolvimento.\n");
+       editarPagamento();
         break;
 
     case 5:
@@ -869,6 +869,109 @@ void listarPagamentos()
     }
 }
 
+void buscarPagamento()
+{
+    char nomeCliente[100];
+    int encontrado = 0;
+
+    if (totalPagamentos == 0)
+    {
+        printf("Nao ha nenhum pagamento cadastrado.\n");
+        return;
+    }
+
+    printf("Digite o nome do cliente: ");
+    fgets(nomeCliente, sizeof(nomeCliente), stdin);
+    nomeCliente[strcspn(nomeCliente, "\n")] = '\0';
+
+    for (int i = 0; i < totalPagamentos; i++)
+    {
+        if (strcmp(nomeCliente, pagamentos[i].nomeCliente) == 0)
+        {
+            encontrado = 1;
+
+            printf("\n===== PAGAMENTO ENCONTRADO =====\n");
+
+            printf("Cliente: %s\n", pagamentos[i].nomeCliente);
+            printf("Valor total: R$ %.2f\n", pagamentos[i].valorTotal);
+            printf("Valor pago: R$ %.2f\n", pagamentos[i].valorPago);
+            printf("Forma de pagamento: %s\n", pagamentos[i].formaPagamento);
+            printf("Status: %s\n", pagamentos[i].status);
+
+            break;
+        }
+    }
+
+    if (encontrado == 0)
+    {
+        printf("Pagamento nao encontrado.\n");
+    }
+}
+
+void editarPagamento()
+{
+    char nomeCliente[100];
+    int encontrado = 0;
+
+    if (totalPagamentos == 0)
+    {
+        printf("Nao ha nenhum pagamento cadastrado.\n");
+        return;
+    }
+
+    printf("Digite o nome do cliente: ");
+    fgets(nomeCliente, sizeof(nomeCliente), stdin);
+    nomeCliente[strcspn(nomeCliente, "\n")] = '\0';
+
+for (int i = 0; i < totalPagamentos; i++)
+{
+    if (strcmp(nomeCliente, pagamentos[i].nomeCliente) == 0)
+    {
+        encontrado = 1;
+
+        printf("Digite o novo valor pago: ");
+        scanf("%f", &pagamentos[i].valorPago);
+        getchar();
+
+        printf("Digite a nova forma de pagamento: ");
+        fgets(pagamentos[i].formaPagamento, sizeof(pagamentos[i].formaPagamento), stdin);
+
+        pagamentos[i].formaPagamento[strcspn(pagamentos[i].formaPagamento, "\n") ] = '\0';
+        
+     if (pagamentos[i].valorPago >= pagamentos[i].valorTotal)
+{
+    strcpy(pagamentos[i].status, "Pago");
+}
+else if (pagamentos[i].valorPago > 0)
+{
+    strcpy(pagamentos[i].status, "Pagamento Parcial");
+}
+else
+{
+    strcpy(pagamentos[i].status, "Pendente");
+}
+       printf("\nPagamento atualizado com sucesso!\n");
+
+        printf("\n===== DADOS ATUALIZADOS =====\n");
+
+        printf("Cliente: %s\n", pagamentos[i].nomeCliente);
+        printf("Valor total: R$ %.2f\n", pagamentos[i].valorTotal);
+        printf("Valor pago: R$ %.2f\n", pagamentos[i].valorPago);
+        printf("Forma de pagamento: %s\n", pagamentos[i].formaPagamento);
+        printf("Status: %s\n", pagamentos[i].status);
+        printf("--------------------------------------------\n");
+
+
+        break;
+    }
+
+}
+if (encontrado == 0)
+{
+    printf("Pagamento nao encontrado.\n");
+}
+
+}
 int main()
 {
     int opcao;
