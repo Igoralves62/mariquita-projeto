@@ -250,7 +250,7 @@ Correção da leitura dos dados diretamente da estrutura Pagamento.
   - Status do pagamento.
 - Mensagem de aviso caso o pagamento não seja encontrado.
 
-## ✅ Sprint 16 - Editar Pagamentos
+##  Sprint 16 - Editar Pagamentos
 
 ### Implementado
 - Funcionalidade de edição de pagamentos pelo nome do cliente.
@@ -270,3 +270,23 @@ Correção da leitura dos dados diretamente da estrutura Pagamento.
 - Laços de repetição (`for`).
 - Estruturas condicionais (`if` / `else if` / `else`).
 - Organização de funções seguindo o padrão CRUD.
+
+##  Sprint 17 - Exclusão de Pagamentos
+
+### Implementado
+- Exclusão de pagamentos pelo nome do cliente.
+- Busca utilizando `strcmp()`.
+- Reorganização automática do vetor após a exclusão.
+- Atualização da quantidade de pagamentos cadastrados.
+- Mensagem de confirmação da exclusão.
+- Tratamento para pagamento não encontrado.
+- Validação para ausência de pagamentos cadastrados.
+
+### Conceitos praticados
+- Exclusão de registros em vetor.
+- Reorganização de dados.
+- Estruturas (`struct`).
+- Manipulação de strings (`strcmp()` e `strcspn()`).
+- Laços de repetição (`for`).
+- Estruturas condicionais (`if`).
+- Organização do CRUD completo do módulo de pagamentos.

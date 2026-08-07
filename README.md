@@ -163,6 +163,20 @@ Durante o desenvolvimento, estão sendo aplicados conceitos fundamentais de prog
   - Forma de pagamento
   - Status
 
+### ✅ Sprint 15 - Busca de Pagamentos
+- Busca por nome do cliente
+- Exibição completa do pagamento
+
+### ✅ Sprint 16 - Edição de Pagamentos
+- Atualização do valor pago
+- Atualização da forma de pagamento
+- Atualização automática do status
+
+### ✅ Sprint 17 - Exclusão de Pagamentos
+- Exclusão de pagamentos pelo nome do cliente
+- Reorganização automática do vetor
+- Atualização da quantidade de pagamentos
+- Confirmação da exclusão
 ---
 
 # 🛠 Tecnologias Utilizadas
@@ -191,15 +205,19 @@ mariquita-reservas/
 
 # 📅 Próximas Funcionalidades
 
-- 🔄 Buscar pagamentos
-- 🔄 Editar pagamentos
-- 🔄 Excluir pagamentos
-- 🔄 Relatórios
-- 🔄 Controle de disponibilidade das reservas
-- 🔄 Persistência de dados em arquivos (.txt/.bin)
-- 🔄 Banco de Dados (versão futura)
-- 🔄 Interface gráfica (versão futura)
+🔄 Relatórios do sistema
 
+🔄 Controle de disponibilidade de datas
+
+🔄 Histórico de pagamentos
+
+🔄 Contratos
+
+🔄 Persistência de dados em arquivos (.txt)
+
+🔄 Banco de Dados (versão futura)
+
+🔄 Interface gráfica (versão futura)
 ---
 
 # 📚 Conceitos Aplicados
