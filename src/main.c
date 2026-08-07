@@ -72,6 +72,15 @@ void relatorioClientes();
 void relatorioReservas();
 void relatorioPagamentos();
 
+void salvarClientes();
+void carregarClientes();
+
+void salvarReservas();
+void carregarReservas();
+void carregarReservas();
+
+
+
 
 void menuClientes()
 {
@@ -157,7 +166,7 @@ do {
         break;
         
          case 5:
-        printf("Em desenvolvimento\n");
+        excluirReserva();
         break;
         
         case 0:
@@ -301,7 +310,10 @@ void cadastrarCliente()
     printf("Endereco cadastrado: %s\n", clientes[totalClientes].endereco);
     printf("Cliente cadastrado com sucesso!");
     totalClientes++;
+
+    salvarClientes();
 }
+
 void listarClientes()
 {
 if (totalClientes==0){
@@ -391,7 +403,9 @@ if (strcmp(nomeEditar, clientes[i].nome) == 0)
     clientes[i].endereco[strcspn(clientes[i].endereco, "\n")] = '\0';
    encontrado = 1;
     printf("Cliente atualizado com sucesso!\n");
-    
+
+    salvarClientes();
+
     printf("\n===== DADOS ATUALIZADOS =====\n");
 
     printf("Nome: %s\n", clientes[i].nome);
@@ -434,6 +448,7 @@ for (int j = i; j < totalClientes - 1; j++)
     clientes[j] = clientes[j + 1];
    }  
    totalClientes--;
+   salvarClientes();
    encontrado = 1;
    printf("Cliente excluido com sucesso!\n");
    printf("\n");
@@ -549,7 +564,7 @@ printf("Evento: %s\n", reservas[totalReservas].tipoEvento);
 printf("Observacoes: %s\n", reservas[totalReservas].observacoes);
 
 totalReservas++;
-
+salvarReservas();
 printf("Reserva cadastrada com sucesso!");
  
 }
@@ -755,6 +770,9 @@ printf("Tipo de evento: %s\n", reservas[i].tipoEvento);
 
 printf("Observações: %s\n", reservas[i].observacoes);
 
+
+salvarReservas();
+
         break;
     }
 }
@@ -794,6 +812,8 @@ void excluirReserva()
             }
 
             totalReservas--;
+            
+            salvarReservas();
 
             printf("Reserva excluida com sucesso!\n");
             break;
@@ -1119,11 +1139,107 @@ void relatorioReservas()
 }
 void relatorioPagamentos()
 {
+    if (totalPagamentos == 0)
+    {
+        printf("Nao ha pagamentos cadastrados.\n");
+        return;
+    }
 
+    printf("\n========== RELATORIO DE PAGAMENTOS ==========\n\n");
+
+    for (int i = 0; i < totalPagamentos; i++)
+    {
+        printf("Pagamento %d\n", i + 1);
+
+        printf("Cliente: %s\n", pagamentos[i].nomeCliente);
+
+        printf("Valor total: R$ %.2f\n", pagamentos[i].valorTotal);
+
+        printf("Valor pago: R$ %.2f\n", pagamentos[i].valorPago);
+
+        printf("Forma de pagamento: %s\n", pagamentos[i].formaPagamento);
+
+        printf("Status: %s\n", pagamentos[i].status);
+
+        printf("--------------------------------------------\n");
+    }
+}
+
+void salvarClientes()
+{
+    FILE *arquivo;
+
+    arquivo = fopen("clientes.dat", "wb");
+
+    if (arquivo == NULL)
+    {
+    printf("Erro ao abrir o arquivo.\n");
+    return;
+    }
+    fwrite(clientes, sizeof(struct Cliente), totalClientes, arquivo);
+    
+    fclose(arquivo);
+}
+
+void carregarClientes()
+{
+FILE *arquivo;
+
+arquivo = fopen("clientes.dat", "rb");
+
+if (arquivo == NULL)
+{
+    return;
+}
+
+totalClientes = fread(clientes, sizeof(struct Cliente), 100,  arquivo);
+
+fclose(arquivo);
+
+}
+
+void salvarReservas()
+{
+ FILE *arquivo;
+
+    arquivo = fopen("reservas.dat", "wb");
+
+    if (arquivo == NULL)
+{
+    printf("Erro ao abrir o arquivo de reservas.\n");
+    return;
+}
+fwrite(reservas, sizeof(struct Reserva), totalReservas, arquivo);
+
+ fclose(arquivo);
+}
+
+void carregarReservas()
+{
+    FILE *arquivo;
+
+    arquivo = fopen("reservas.dat", "rb");
+
+    if (arquivo == NULL)
+    {
+        return;
+    }
+
+    totalReservas = fread(
+        reservas,
+        sizeof(struct Reserva),
+        100,
+        arquivo
+    );
+
+    fclose(arquivo);
 }
 
 int main()
 {
+    carregarClientes();
+    carregarReservas();
+
     int opcao;
 
  do 
