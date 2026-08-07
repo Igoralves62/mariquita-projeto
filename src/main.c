@@ -203,7 +203,7 @@ void menuPagamentos()
         break;
 
     case 5:
-        printf("Em desenvolvimento.\n");
+        excluirPagamento();
         break;
 
     case 0:
@@ -970,7 +970,42 @@ if (encontrado == 0)
 {
     printf("Pagamento nao encontrado.\n");
 }
+}
+void excluirPagamento()
+{
+    char nomeCliente[100];
+    int encontrado = 0;
 
+    if (totalPagamentos == 0)
+    {
+        printf("Nao ha nenhum pagamento cadastrado.\n");
+        return;
+    }
+
+    printf("Digite o nome do cliente: ");
+    fgets(nomeCliente, sizeof(nomeCliente), stdin);
+    nomeCliente[strcspn(nomeCliente, "\n")] = '\0';
+
+for (int i = 0; i < totalPagamentos; i++)
+{
+    if (strcmp(nomeCliente, pagamentos[i].nomeCliente) == 0)
+    {
+        encontrado = 1;
+
+        for (int j = i; j < totalPagamentos - 1; j++)
+        {
+        pagamentos[j] = pagamentos[j + 1];
+        }
+     totalPagamentos--;
+
+     printf("Pagamento excluido com sucesso!\n");
+        break;
+    }
+}
+if (encontrado == 0)
+{
+    printf("Pagamento nao encontrado.\n");
+}
 }
 int main()
 {
