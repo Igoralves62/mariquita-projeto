@@ -249,3 +249,24 @@ Correção da leitura dos dados diretamente da estrutura Pagamento.
   - Forma de pagamento;
   - Status do pagamento.
 - Mensagem de aviso caso o pagamento não seja encontrado.
+
+## ✅ Sprint 16 - Editar Pagamentos
+
+### Implementado
+- Funcionalidade de edição de pagamentos pelo nome do cliente.
+- Busca do pagamento utilizando `strcmp()`.
+- Atualização do valor pago.
+- Atualização da forma de pagamento.
+- Recalculo automático do status do pagamento (`Pago`, `Pagamento Parcial` ou `Pendente`).
+- Exibição dos dados atualizados após a edição.
+- Mensagem de confirmação de atualização.
+- Tratamento para pagamento não encontrado.
+- Validação para ausência de pagamentos cadastrados.
+
+### Conceitos praticados
+- Atualização de registros em vetor.
+- Manipulação de strings com `strcmp()`, `strcpy()` e `strcspn()`.
+- Estruturas (`struct`).
+- Laços de repetição (`for`).
+- Estruturas condicionais (`if` / `else if` / `else`).
+- Organização de funções seguindo o padrão CRUD.
