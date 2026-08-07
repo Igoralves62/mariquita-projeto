@@ -67,7 +67,12 @@ void buscarPagamento();
 void editarPagamento();
 void excluirPagamento();
 
-// Função do menu de clientes
+void menuRelatorios();
+void relatorioClientes();
+void relatorioReservas();
+void relatorioPagamentos();
+
+
 void menuClientes()
 {
     int opcaocliente;
@@ -214,6 +219,47 @@ void menuPagamentos()
 }
 
     } while(opcaoPagamento != 0);
+}
+
+void menuRelatorios()
+{
+    int opcaoRelatorio;
+
+    do
+    {
+        printf("\n========== RELATORIOS ==========\n\n");
+
+        printf("1 - Relatorio de Clientes\n");
+        printf("2 - Relatorio de Reservas\n");
+        printf("3 - Relatorio de Pagamentos\n");
+        printf("0 - Voltar\n\n");
+
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcaoRelatorio);
+        getchar();
+
+        switch(opcaoRelatorio)
+        {
+            case 1:
+                relatorioClientes();
+                break;
+
+            case 2:
+                relatorioReservas();
+                break;
+
+            case 3:
+                relatorioPagamentos();
+                break;
+
+            case 0:
+                break;
+
+            default:
+                printf("Opcao invalida.\n");
+        }
+
+    } while(opcaoRelatorio != 0);
 }
 
 void cadastrarCliente()
@@ -1007,6 +1053,75 @@ if (encontrado == 0)
     printf("Pagamento nao encontrado.\n");
 }
 }
+
+void relatorioClientes()
+{
+ if (totalClientes == 0)
+ {
+    printf("Nao ha clientes cadastrados.\n");
+    return;
+ }
+    printf("\n========== RELATORIO DE CLIENTES ==========\n\n");
+
+    for (int i = 0; i < totalClientes; i++)
+    {
+       printf("Cliente %d\n", i + 1);
+
+       printf("Nome: %s\n", clientes[i].nome);
+
+       printf("Telefone: %s\n", clientes[i].telefone);
+
+       printf("CPF: %s\n", clientes[i].cpf);
+
+       printf("Endereco: %s\n", clientes[i].endereco);
+
+       printf("--------------------------------------------\n");
+    }
+}
+void relatorioReservas()
+{
+    if (totalReservas == 0)
+    {
+        printf("Nao ha reservas cadastradas.\n");
+        return;
+    }
+
+    printf("\n========== RELATORIO DE RESERVAS ==========\n\n");
+
+    for (int i = 0; i < totalReservas; i++)
+    {
+        printf("Reserva %d\n", i + 1);
+
+        printf("Cliente: %s\n", reservas[i].nomeCliente);
+
+        printf("Data de inicio: %02d/%02d/%04d\n",
+               reservas[i].dataInicio.dia,
+               reservas[i].dataInicio.mes,
+               reservas[i].dataInicio.ano);
+
+        printf("Data de termino: %02d/%02d/%04d\n",
+               reservas[i].dataFim.dia,
+               reservas[i].dataFim.mes,
+               reservas[i].dataFim.ano);
+
+        printf("Horario: %s\n", reservas[i].horario);
+
+        printf("Quantidade de pessoas: %d\n", reservas[i].quantidadePessoas);
+
+        printf("Valor: R$ %.2f\n", reservas[i].valor);
+
+        printf("Tipo de evento: %s\n", reservas[i].tipoEvento);
+
+        printf("Observacoes: %s\n", reservas[i].observacoes);
+
+        printf("--------------------------------------------\n");
+    }
+}
+void relatorioPagamentos()
+{
+
+}
+
 int main()
 {
     int opcao;
@@ -1039,7 +1154,7 @@ int main()
             break;
 
         case 4:
-            printf("Módulo de Relatórios em desenvolvimento.\n");
+            menuRelatorios();
             break;
 
         case 0:
