@@ -177,6 +177,38 @@ Durante o desenvolvimento, estão sendo aplicados conceitos fundamentais de prog
 - Reorganização automática do vetor
 - Atualização da quantidade de pagamentos
 - Confirmação da exclusão
+
+### ✅ Sprint 18 - Módulo de Relatórios
+- Criação do menu de relatórios
+- Integração ao menu principal
+- Organização do sistema em um novo módulo
+
+### ✅ Sprint 19 - Relatório de Clientes
+- Exibição de todos os clientes cadastrados
+- Listagem organizada das informações
+- Validação para ausência de clientes
+
+### ✅ Sprint 20 - Relatório de Reservas
+- Exibição de todas as reservas cadastradas
+- Apresentação das datas formatadas
+- Exibição do horário, valor, quantidade de pessoas, tipo de evento e observações
+- Validação para ausência de reservas
+
+### ✅ Sprint 21 - Relatório de Pagamentos
+- Exibição de todos os pagamentos cadastrados
+- Valor total
+- Valor pago
+- Forma de pagamento
+- Status do pagamento
+- Validação para ausência de pagamentos
+
+### ✅ Sprint 22 - Persistência de Clientes
+- Criação da função `salvarClientes()`
+- Gravação dos clientes em arquivo binário (`clientes.dat`)
+- Utilização das funções `fopen()`, `fwrite()` e `fclose()`
+- Salvamento automático após cadastrar clientes
+- Salvamento automático após editar clientes
+- Salvamento automático após excluir clientes
 ---
 
 # 🛠 Tecnologias Utilizadas
@@ -205,15 +237,21 @@ mariquita-reservas/
 
 # 📅 Próximas Funcionalidades
 
-🔄 Relatórios do sistema
+## 📅 Próximas Funcionalidades
 
-🔄 Controle de disponibilidade de datas
+🔄 Carregar clientes automaticamente ao iniciar o sistema
 
-🔄 Histórico de pagamentos
+🔄 Persistência de reservas
 
-🔄 Contratos
+🔄 Persistência de pagamentos
 
-🔄 Persistência de dados em arquivos (.txt)
+🔄 Relatórios estatísticos
+
+🔄 Controle de disponibilidade das datas
+
+🔄 Histórico de contratos
+
+🔄 Organização do projeto em múltiplos arquivos (.h e .c)
 
 🔄 Banco de Dados (versão futura)
 
@@ -237,6 +275,16 @@ Durante o desenvolvimento deste projeto estão sendo utilizados conceitos como:
 - Versionamento com Git
 - GitHub
 - Boas práticas de programação
+- Arquivos em linguagem C (FILE)
+- Leitura e gravação de arquivos
+- Persistência de dados
+- Manipulação de arquivos binários
+- fopen()
+- fwrite()
+- fread()
+- fclose()
+- CRUD completo
+- Organização modular do sistema
 
 ---
 
