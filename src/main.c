@@ -79,7 +79,8 @@ void salvarReservas();
 void carregarReservas();
 void carregarReservas();
 
-
+void salvarPagamentos();
+void carregarPagamentos();
 
 
 void menuClientes()
@@ -892,7 +893,9 @@ void cadastrarPagamento()
     printf("Forma de pagamento: %s\n", pagamentos[totalPagamentos].formaPagamento);
     printf("Status: %s\n", pagamentos[totalPagamentos].status);
 
-    totalPagamentos++;
+   totalPagamentos++;
+
+    salvarPagamentos();
 
     printf("\nPagamento cadastrado com sucesso!\n");
 
@@ -1027,7 +1030,11 @@ else
         printf("Status: %s\n", pagamentos[i].status);
         printf("--------------------------------------------\n");
 
+printf("\nPagamento atualizado com sucesso!\n");
 
+salvarPagamentos();
+
+printf("\n===== DADOS ATUALIZADOS =====\n");
         break;
     }
 
@@ -1063,6 +1070,7 @@ for (int i = 0; i < totalPagamentos; i++)
         pagamentos[j] = pagamentos[j + 1];
         }
      totalPagamentos--;
+     salvarPagamentos();
 
      printf("Pagamento excluido com sucesso!\n");
         break;
@@ -1235,10 +1243,50 @@ void carregarReservas()
     fclose(arquivo);
 }
 
+
+void salvarPagamentos()
+{
+    FILE *arquivo;
+
+    arquivo = fopen("pagamentos.dat", "wb");
+
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo de pagamentos.\n");
+        return;
+    }
+
+    fwrite(pagamentos, sizeof(struct Pagamento), totalPagamentos, arquivo);
+
+    fclose(arquivo);
+}
+
+void carregarPagamentos()
+{
+    FILE *arquivo;
+
+    arquivo = fopen("pagamentos.dat", "rb");
+
+    if (arquivo == NULL)
+    {
+        return;
+    }
+
+    totalPagamentos = fread(
+        pagamentos,
+        sizeof(struct Pagamento),
+        100,
+        arquivo
+    );
+
+    fclose(arquivo);
+}
+
 int main()
 {
     carregarClientes();
     carregarReservas();
+    carregarPagamentos();
 
     int opcao;
 
