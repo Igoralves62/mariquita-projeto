@@ -290,3 +290,75 @@ Correção da leitura dos dados diretamente da estrutura Pagamento.
 - Laços de repetição (`for`).
 - Estruturas condicionais (`if`).
 - Organização do CRUD completo do módulo de pagamentos.
+
+## Sprint 18 - Módulo de Relatórios
+
+### Implementado
+- Criação do menu de relatórios.
+- Integração ao menu principal.
+- Organização do módulo de relatórios.
+
+### Conceitos praticados
+- Modularização.
+- Organização do sistema.
+- Menus em linguagem C.
+
+
+## Sprint 19 - Relatório de Clientes
+
+### Implementado
+- Relatório completo dos clientes cadastrados.
+- Validação para lista vazia.
+- Exibição organizada das informações.
+
+### Conceitos praticados
+- Percorrer vetores.
+- Impressão formatada.
+- Reutilização de código.
+
+## Sprint 20 - Relatório de Reservas
+
+### Implementado
+- Relatório completo das reservas.
+- Exibição das datas formatadas.
+- Exibição de todas as informações da reserva.
+
+### Conceitos praticados
+- Percorrer estruturas.
+- Impressão formatada.
+- Organização dos relatórios.
+
+
+## Sprint 21 - Relatório de Pagamentos
+
+### Implementado
+- Relatório completo dos pagamentos.
+- Exibição do valor total.
+- Exibição do valor pago.
+- Exibição da forma de pagamento.
+- Exibição do status do pagamento.
+
+### Conceitos praticados
+- Relatórios.
+- Organização dos módulos.
+- Manipulação de vetores.
+
+## Sprint 22 - Persistência de Clientes
+
+### Implementado
+- Criação da função `salvarClientes()`.
+- Criação automática do arquivo `clientes.dat`.
+- Escrita dos clientes em arquivo binário utilizando `fwrite()`.
+- Abertura do arquivo utilizando `fopen()`.
+- Fechamento seguro utilizando `fclose()`.
+- Salvamento automático após cadastro.
+- Salvamento automático após edição.
+- Salvamento automático após exclusão.
+
+### Conceitos praticados
+- Arquivos em C (`FILE`).
+- Persistência de dados.
+- Escrita de arquivos binários.
+- Manipulação de arquivos.
+- Organização do sistema.
+
