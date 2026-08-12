@@ -362,3 +362,69 @@ Correção da leitura dos dados diretamente da estrutura Pagamento.
 - Manipulação de arquivos.
 - Organização do sistema.
 
+## Sprint 23 - Persistência de Clientes
+
+### Implementado
+- Criação da função `carregarClientes()`.
+- Leitura dos dados armazenados em `clientes.dat`.
+- Utilização de `fread()` para recuperar os clientes.
+- Atualização automática de `totalClientes`.
+- Carregamento automático dos clientes ao iniciar o sistema.
+- Verificação da existência do arquivo antes da leitura.
+- Fechamento do arquivo utilizando `fclose()`.
+
+### Conceitos praticados
+- Leitura de arquivos binários.
+- Persistência de dados.
+- Utilização de `fread()`.
+- Manipulação de ponteiros para arquivos.
+- Recuperação de estruturas armazenadas em arquivos.
+
+---
+
+## Sprint 24 - Persistência de Reservas
+
+### Implementado
+- Criação da função `salvarReservas()`.
+- Criação do arquivo `reservas.dat`.
+- Gravação das reservas utilizando `fwrite()`.
+- Salvamento automático após cadastro de reserva.
+- Salvamento automático após edição de reserva.
+- Salvamento automático após exclusão de reserva.
+- Criação da função `carregarReservas()`.
+- Leitura das reservas utilizando `fread()`.
+- Carregamento automático das reservas ao iniciar o sistema.
+- Atualização automática de `totalReservas`.
+- Fechamento dos arquivos utilizando `fclose()`.
+
+### Conceitos praticados
+- Persistência de dados.
+- Arquivos binários.
+- Leitura e escrita de estruturas.
+- Utilização de `fopen()`, `fwrite()`, `fread()` e `fclose()`.
+- Manipulação de vetores de estruturas.
+
+---
+
+## Sprint 25 - Persistência de Pagamentos
+
+### Implementado
+- Criação da função `salvarPagamentos()`.
+- Criação do arquivo `pagamentos.dat`.
+- Gravação dos pagamentos utilizando `fwrite()`.
+- Salvamento automático após cadastro de pagamento.
+- Salvamento automático após edição de pagamento.
+- Salvamento automático após exclusão de pagamento.
+- Criação da função `carregarPagamentos()`.
+- Leitura dos pagamentos utilizando `fread()`.
+- Carregamento automático dos pagamentos ao iniciar o sistema.
+- Atualização automática de `totalPagamentos`.
+- Fechamento dos arquivos utilizando `fclose()`.
+
+### Conceitos praticados
+- Persistência de dados.
+- Arquivos binários.
+- Leitura e escrita de estruturas.
+- Utilização de `fopen()`, `fwrite()`, `fread()` e `fclose()`.
+- Manipulação de vetores de estruturas.
+

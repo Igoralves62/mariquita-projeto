@@ -209,6 +209,30 @@ Durante o desenvolvimento, estão sendo aplicados conceitos fundamentais de prog
 - Salvamento automático após cadastrar clientes
 - Salvamento automático após editar clientes
 - Salvamento automático após excluir clientes
+
+### ✅ Sprint 23 - Carregamento de Clientes
+- Criação da função `carregarClientes()`
+- Leitura dos clientes armazenados em `clientes.dat`
+- Carregamento automático dos dados ao iniciar o sistema
+- Utilização de `fread()`
+- Atualização automática de `totalClientes`
+- Tratamento para arquivo inexistente
+
+### ✅ Sprint 24 - Persistência de Reservas
+- Criação do arquivo `reservas.dat`
+- Salvamento automático das reservas
+- Carregamento automático das reservas ao iniciar o sistema
+- Persistência após cadastro, edição e exclusão
+- Utilização de arquivos binários
+- Utilização de `fopen()`, `fwrite()`, `fread()` e `fclose()`
+
+### ✅ Sprint 25 - Persistência de Pagamentos
+- Criação do arquivo `pagamentos.dat`
+- Salvamento automático dos pagamentos
+- Carregamento automático dos pagamentos ao iniciar o sistema
+- Persistência após cadastro, edição e exclusão
+- Utilização de arquivos binários
+- Utilização de `fopen()`, `fwrite()`, `fread()` e `fclose()`
 ---
 
 # 🛠 Tecnologias Utilizadas
@@ -239,19 +263,19 @@ mariquita-reservas/
 
 ## 📅 Próximas Funcionalidades
 
-🔄 Carregar clientes automaticamente ao iniciar o sistema
+## 📅 Próximas Funcionalidades
 
-🔄 Persistência de reservas
+🔄 Modularização do projeto em arquivos `.h` e `.c`
 
-🔄 Persistência de pagamentos
+🔄 Separação dos módulos de Clientes, Reservas e Pagamentos
 
-🔄 Relatórios estatísticos
+🔄 Melhorias na validação dos dados
+
+🔄 Melhorias nos relatórios
 
 🔄 Controle de disponibilidade das datas
 
 🔄 Histórico de contratos
-
-🔄 Organização do projeto em múltiplos arquivos (.h e .c)
 
 🔄 Banco de Dados (versão futura)
 
@@ -262,29 +286,29 @@ mariquita-reservas/
 
 Durante o desenvolvimento deste projeto estão sendo utilizados conceitos como:
 
-- Programação Estruturada
-- Structs
+- Persistência de dados
+- Arquivos binários
+- Leitura e gravação de arquivos
+- Manipulação de arquivos com `FILE`
+
+`fopen()`
+
+`fwrite()`
+
+`fread()`
+
+`fclose()`
+
+- Modularização
+- CRUD
+- Estruturas
 - Vetores
 - Funções
-- Modularização
-- Manipulação de Strings (`string.h`)
-- Estruturas de decisão (`if`, `switch`)
-- Estruturas de repetição (`for`, `do...while`)
-- CRUD (Create, Read, Update, Delete)
-- Organização de projetos
-- Versionamento com Git
+- Manipulação de Strings
+- Laços de repetição
+- Git
 - GitHub
 - Boas práticas de programação
-- Arquivos em linguagem C (FILE)
-- Leitura e gravação de arquivos
-- Persistência de dados
-- Manipulação de arquivos binários
-- fopen()
-- fwrite()
-- fread()
-- fclose()
-- CRUD completo
-- Organização modular do sistema
 
 ---
 
